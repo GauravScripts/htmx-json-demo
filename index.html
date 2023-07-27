@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>htmx + json-server Demo</title>
+    <script src="https://unpkg.com/htmx.org"></script>
+</head>
+<body>
+<h1>User Details</h1>
+<ul>
+    <li hx-get="http://localhost:3000/users" hx-target="#user-list" hx-swap="outerHTML">
+        <button>Get Users</button>
+    </li>
+</ul>
+
+<ul id="user-list">
+    <!-- User details will be fetched and displayed here -->
+
+</ul>
+
+<h2>Add New User</h2>
+<form hx-post="http://localhost:3000/users" hx-target="#user-list" hx-swap="outerHTML">
+    <label for="name">Name:</label>
+    <input type="text" name="name" required>
+    <label for="age">Age:</label>
+    <input type="number" name="age" required>
+    <button type="submit">Add User</button>
+</form>
+</body>
+</html>
